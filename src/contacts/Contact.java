@@ -22,7 +22,7 @@ public class Contact {
 
          
     //Constructeur par paramètres
-    public Contact(String nom,String prenom,String tel, String email, String adresse, int cp, String ville, )
+    /*public Contact(String nom,String prenom,String tel, String email, String adresse, int cp, String ville, )*/
         {
          
     //Initialisation des attributs
