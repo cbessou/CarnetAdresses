@@ -17,20 +17,26 @@ import java.util.ArrayList;
 public class FacadeContacts {
     public ArrayList<String> rechercher(String rech){
         ArrayList<String> liste = new ArrayList();
-        liste.add(rech);
-        liste.add("test");
+        ArrayList<Contact> l = ListeContacts.getInstance().rechercher(rech);
+        l.forEach(c->{
+            liste.add(c.toString());
+        });
         return liste;
     }
     
-    public Contact creerContact(String[] coord){
+    public void creerContact(String[] coord){
         FabriqueContact f = new FabriqueContact();
         try{
-            Contact c = f.creeContact(coord[0], coord[1], coord[2], coord[3], coord[4], Integer.parseInt(coord[5]), coord[6]);
-            ajouterContact(c);
-        }catch(Exception e){
+            Contact c = f.creeContact(coord[0], coord[1], coord[2], coord[3], coord[4], coord[5], coord[6]);
+            if (c!=null){
+                ajouterContact(c);
+            }else{
+                System.out.println("Impossible de créer le contact");
+            }
+            
+        }catch(NumberFormatException e){
             System.out.println(e.getMessage());
         }
-        return null;
     }
     
     public void ajouterContact(Contact c){

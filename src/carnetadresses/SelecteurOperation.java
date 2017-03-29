@@ -78,7 +78,6 @@ public class SelecteurOperation {
         
         FacadeContacts f = new FacadeContacts();
         f.creerContact(coord);
-        System.out.println(Arrays.toString(coord));
     }
     
     public void rechercher(){
