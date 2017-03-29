@@ -16,7 +16,8 @@ public class CarnetAdresses {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        SelecteurOperation.start();
+        SelecteurOperation op = new SelecteurOperation();
+        op.start();
     }
     
 }

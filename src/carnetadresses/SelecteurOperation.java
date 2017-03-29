@@ -14,9 +14,12 @@ import java.util.Scanner;
  * @author Nanwee
  */
 public class SelecteurOperation {
-   
-    public static void start(){
-        boolean exec = true;
+    private boolean exec;
+    
+    public SelecteurOperation(){
+        exec = true;
+    }
+    public void start(){
         Scanner k = new Scanner(System.in);
         while(exec){
             System.out.println("Que voulez-vous faire ?\n1: afficher les contacts\n"
@@ -24,13 +27,13 @@ public class SelecteurOperation {
             int choix = k.nextInt();
             switch (choix){
                 case 1:
-                    SelecteurOperation.afficher("");
+                    afficher("");
                     break;
                 case 2:
-                    SelecteurOperation.rechercher();
+                    rechercher();
                     break;
                 case 3:
-                    SelecteurOperation.ajouter();
+                    ajouter();
                     break;
                 case 4:
                     exec = false;
@@ -40,7 +43,7 @@ public class SelecteurOperation {
         
     }
     
-    public static void ajouter(){
+    public void ajouter(){
         String[] coord = new String[7];
         String val;
         Scanner k = new Scanner(System.in);
@@ -78,14 +81,14 @@ public class SelecteurOperation {
         System.out.println(Arrays.toString(coord));
     }
     
-    public static void rechercher(){
+    public void rechercher(){
         Scanner k = new Scanner(System.in);
         System.out.println("Nom à rechercher :");
         String val = k.nextLine();
         afficher(val);
     }
     
-    public static void afficher(String nom){
+    public void afficher(String nom){
         FacadeContacts f = new FacadeContacts();
         ArrayList<String> liste = f.rechercher(nom);
         liste.forEach(c->{
