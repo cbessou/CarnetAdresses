@@ -90,7 +90,7 @@ public class FabriqueContact {
     public Contact creeContact(String nom, String prenom, String tel, String mail, String adresse, String cp, String ville) {
 
         Contact contact = null;
-
+        System.out.println(nom + prenom + tel + mail + adresse + cp + ville);
         try {
 
             if (valideNom(nom) && validePrenom(prenom) && valideAdresse(adresse)&& valideTel(tel) && valideCP(cp) && valideVille(ville) && valideMail(mail)) {
