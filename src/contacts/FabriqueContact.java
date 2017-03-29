@@ -15,7 +15,7 @@ public class FabriqueContact {
     public boolean valideNom(String nom) {
         //2 à 30 caract alpha, tirets, apostrophes, espaces
 
-        return nom.matches("[a-zA-Z\\'\\.\\-\\e]{2,30}");
+        return nom.matches("[a-zA-Z\\'\\.\\-\\s]{2,30}");
     }
 
     public void validePrenom(String prenom) {

@@ -43,13 +43,16 @@ public class FabriqueContactTest {
     @Test
     public void testValideNom() {
         System.out.println("valideNom");
-        String nom = "";
+        String nom = "Lhubert-ma.n man'";
         FabriqueContact instance = new FabriqueContact();
-        boolean expResult = false;
+        
         boolean result = instance.valideNom(nom);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        if(result){
+        System.out.println("Regex du Nom Validée");
+        }else{
+        fail("Regex Echoué");
+        }
     }
 
     /**
@@ -150,7 +153,7 @@ public class FabriqueContactTest {
     @Test
     public void testCreeContact() {
         System.out.println("creeContact");
-        String nom = "";
+        String nom = "test";
         String prenom = "";
         String tel = "";
         String mail = "";
@@ -158,11 +161,15 @@ public class FabriqueContactTest {
         int cp = 0;
         String ville = "";
         FabriqueContact instance = new FabriqueContact();
-        Contact expResult = null;
+        
         Contact result = instance.creeContact(nom, prenom, tel, mail, adresse, cp, ville);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if(result != null){
+        
+            System.out.println("Contact créé :"+result.getNom());
+        }else{
+        
+        fail("Contact non créé.");
+        }
     }
     
 }
