@@ -10,5 +10,13 @@ package contacts;
  * @author Nanwee
  */
 public class ListeContacts {
+
+    public static ListeContacts getInstance() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void ajouter(Contact c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
