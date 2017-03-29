@@ -12,7 +12,6 @@ package contacts;
 public class Contact {
     
     // Informations du contact      
-    //commentaire test
     private String nom;
     private String prenom;
     private String tel;
