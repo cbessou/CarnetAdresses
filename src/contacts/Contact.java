@@ -17,12 +17,12 @@ public class Contact {
     private String tel;
     private String email;
     private String adresse;
-    private int cp;
+    private String cp;
     private String ville;
 
          
     //Constructeur par paramètres
-    public Contact(String nom, String prenom, String tel, String email, String adresse, int cp, String ville){
+    public Contact(String nom, String prenom, String tel, String email, String adresse, String cp, String ville){
          
     //Initialisation des attributs
         this.nom = nom;
@@ -97,12 +97,12 @@ public class Contact {
 /*...............Code postal..............*/
     
     //Récupérer le code postal
-    public int getCp() {
+    public String getCp() {
         return cp;
     }
      
     //Modifier le code postal  
-    public void setCp(int cp) {
+    public void setCp(String cp) {
                 this.cp = cp;
             }
     
