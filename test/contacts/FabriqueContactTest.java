@@ -111,7 +111,7 @@ public class FabriqueContactTest {
     @Test
     public void testValideCP() {
         System.out.println("valideCP");
-        int cp = 92000;
+        String cp = "92000";
         FabriqueContact instance = new FabriqueContact();
         boolean result = instance.valideCP(cp);
          if(result){
@@ -175,7 +175,7 @@ public class FabriqueContactTest {
         String tel = "00-00.00-00.00";
         String mail = "test@exemple.test";
         String adresse = "test de l'adresse";
-        int cp = 31000;
+        String cp = "31000";
         String ville = "Test ville";
         FabriqueContact instance = new FabriqueContact();
         

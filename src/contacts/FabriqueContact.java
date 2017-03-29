@@ -50,11 +50,11 @@ public class FabriqueContact {
         }
     }
 
-    public boolean valideCP(int cp) {
+    public boolean valideCP(String cp) {
         // 4 à 5 caractères numériques
-        String testCp = Integer.toString(cp);
-        if (testCp != "") {
-            return testCp.matches("^[0-9]{4,5}$");
+        
+        if (cp != "") {
+            return cp.matches("^[0-9]{4,5}$");
         } else {
             return true;
         }
@@ -87,7 +87,7 @@ public class FabriqueContact {
     //}
 
     //fonction qui va finalement fabriquer le contact après vérifications.
-    public Contact creeContact(String nom, String prenom, String tel, String mail, String adresse, int cp, String ville) {
+    public Contact creeContact(String nom, String prenom, String tel, String mail, String adresse, String cp, String ville) {
 
         Contact contact = null;
 
