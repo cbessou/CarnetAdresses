@@ -5,6 +5,14 @@
  */
 package contacts;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -14,14 +22,20 @@ import java.util.ArrayList;
 public class ListeContacts {
     private static ListeContacts instance = null;
     private ArrayList<Contact> contacts;
+    private String pathname = "./listeContacts.dat";
     
     
-    private ListeContacts(){
+    private ListeContacts() throws IOException, FileNotFoundException, ClassNotFoundException{
+        
         contacts = new ArrayList<>();
+        
     }
-    public static ListeContacts getInstance() {
+    public static ListeContacts getInstance() throws IOException, FileNotFoundException, ClassNotFoundException {
         if(ListeContacts.instance==null){
             ListeContacts.instance = new ListeContacts();
+            instance.charger();
+           
+            
         }
         return ListeContacts.instance;
     }
@@ -34,6 +48,7 @@ public class ListeContacts {
     public boolean ajouter(Contact c) {
         
        boolean result =this.contacts.add(c);
+       this.enregistrer();
        return result;
     }
     
@@ -60,8 +75,37 @@ public class ListeContacts {
     }
     
     //fonction de sauvegarde de la liste de contacts.
-    public void enregistrer(){}
+    public void enregistrer(){
+        
+    try {
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(this.pathname));
+        out.writeObject(this.contacts);
+        out.close();
+        }catch(IOException e){
+            e.getMessage();
+        }
+    }
     
     //fonction qui charge la liste de contacts.
-    static public void charger(){}
+    public void charger() throws FileNotFoundException, IOException, ClassNotFoundException{
+    try{
+         System.out.println("Chargement des contacts");
+        ObjectInputStream in;
+        in = new ObjectInputStream(new FileInputStream(this.pathname));
+        ArrayList listeContact = (ArrayList) in.readObject();
+        this.contacts= listeContact;
+       
+        
+    }catch(IOException|ClassNotFoundException e){
+        
+        System.out.println("Erreur de chargement du fichier" + e.getMessage());
+    }
+            
+            }
+    
+    
+    public String toString(){
+    
+    return (""+contacts);
+    }
 }

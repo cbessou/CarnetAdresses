@@ -5,11 +5,13 @@
  */
 package contacts;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Mitch
  */
-public class Contact {
+public class Contact implements Serializable {
     
     // Informations du contact      
     private String nom;
