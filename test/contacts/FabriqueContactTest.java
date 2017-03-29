@@ -61,11 +61,17 @@ public class FabriqueContactTest {
     @Test
     public void testValidePrenom() {
         System.out.println("validePrenom");
-        String prenom = "";
+        String prenom = "Test Prénom - '. Test";
         FabriqueContact instance = new FabriqueContact();
-        instance.validePrenom(prenom);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        boolean result = instance.validePrenom(prenom);
+       
+        if(result){
+        System.out.println("Regex du prénom réussie");
+ 
+        }else{
+            
+        fail("Regex du prénom échouée");}
     }
 
     /**
@@ -74,11 +80,14 @@ public class FabriqueContactTest {
     @Test
     public void testValideTel() {
         System.out.println("valideTel");
-        String nom = "";
+        String tel = "";
         FabriqueContact instance = new FabriqueContact();
-        instance.valideTel(nom);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        boolean result = instance.valideTel(tel);
+        
+        if(result){
+        System.out.println("Regex du numéro de téléphone validée");
+        }else{
+        fail("Regex échouée");}
     }
 
     /**
@@ -87,11 +96,13 @@ public class FabriqueContactTest {
     @Test
     public void testValideAdresse() {
         System.out.println("valideAdresse");
-        String nom = "";
+        String adresse = "325 Rue de Test-Regex. Appartement rez de chaussée, l'artiste.";
         FabriqueContact instance = new FabriqueContact();
-        instance.valideAdresse(nom);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        boolean result = instance.valideAdresse(adresse);
+         if(result){
+        System.out.println("Regex de l'adresse validée");
+        }else{
+        fail("Regex échouée");}
     }
 
     /**
@@ -100,11 +111,13 @@ public class FabriqueContactTest {
     @Test
     public void testValideCP() {
         System.out.println("valideCP");
-        int cp = 0;
+        int cp = 92000;
         FabriqueContact instance = new FabriqueContact();
-        instance.valideCP(cp);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        boolean result = instance.valideCP(cp);
+         if(result){
+        System.out.println("Regex du code postal validée");
+        }else{
+        fail("Regex échouée");}
     }
 
     /**
@@ -115,9 +128,11 @@ public class FabriqueContactTest {
         System.out.println("valideVille");
         String ville = "";
         FabriqueContact instance = new FabriqueContact();
-        instance.valideVille(ville);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        boolean result = instance.valideVille(ville);
+         if(result){
+        System.out.println("Regex de la ville validée");
+        }else{
+        fail("Regex échouée");}
     }
 
     /**
@@ -126,17 +141,19 @@ public class FabriqueContactTest {
     @Test
     public void testValideMail() {
         System.out.println("valideMail");
-        String nom = "";
+        String mail = "testtest@test.com";
         FabriqueContact instance = new FabriqueContact();
-        instance.valideMail(nom);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        boolean result = instance.valideMail(mail);
+        if(result){
+        System.out.println("Regex du mail validée");
+        }else{
+        fail("Regex échouée");}
     }
 
     /**
      * Test of valideContact method, of class FabriqueContact.
      */
-    @Test
+ /*   @Test
     public void testValideContact() {
         System.out.println("valideContact");
         FabriqueContact instance = new FabriqueContact();
@@ -145,7 +162,7 @@ public class FabriqueContactTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+    }*/
 
     /**
      * Test of creeContact method, of class FabriqueContact.
@@ -153,19 +170,19 @@ public class FabriqueContactTest {
     @Test
     public void testCreeContact() {
         System.out.println("creeContact");
-        String nom = "test";
-        String prenom = "";
-        String tel = "";
-        String mail = "";
-        String adresse = "";
-        int cp = 0;
-        String ville = "";
+        String nom = "testNom";
+        String prenom = "testPrénom";
+        String tel = "00-00.00-00.00";
+        String mail = "test@exemple.test";
+        String adresse = "test de l'adresse";
+        int cp = 31000;
+        String ville = "Test ville";
         FabriqueContact instance = new FabriqueContact();
         
         Contact result = instance.creeContact(nom, prenom, tel, mail, adresse, cp, ville);
         if(result != null){
         
-            System.out.println("Contact créé :"+result.getNom());
+            System.out.println("Contact créé! \n nom :" + result.getNom()+"\n prénom :" + result.getPrenom()+"\n Tel : "+ result.getTel()+"\n adresse :" + result.getAdresse()+"\n Code Postal :" + result.getCp()+"\n Ville :" + result.getVille()+"\n Mail :" + result.getEmail());
         }else{
         
         fail("Contact non créé.");
