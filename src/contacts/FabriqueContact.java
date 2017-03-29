@@ -20,62 +20,61 @@ public class FabriqueContact {
 
     public boolean validePrenom(String prenom) {
         //2 à 30 caractères alphabétiques, tirets, apostrophes, espaces
-
-        if (prenom != "") {
-
-            return prenom.matches("^[a-zA-Z\\p{L}\\'\\.\\-\\s]{2,30}$");
-
-        } else {
-
+        System.out.println(prenom);
+        if (prenom == "") {
             return true;
+        } else {
+            
+            return prenom.matches("^[a-zA-Z\\p{L}\\'\\.\\-\\s]{2,30}$");
+            
         }
 
     }
 
     public boolean valideTel(String tel) {
         //10 à 14 caractères numériques, tirets, espaces, points
-        if (tel != "") {
-            return tel.matches("^[0-9\\-\\.\\s]{10,14}$");
-        } else {
+        if (tel == "") {
             return true;
+        } else {
+            return tel.matches("^[0-9\\-\\.\\s]{10,14}$");
         }
     }
 
     public boolean valideAdresse(String adresse) {
         // 300 caractères alphanumériques, tirets, apostrophes, espaces, points
-        if (adresse != "") {
-            return adresse.matches("^[a-zA-Z0-9\\p{L}\\'\\.\\-\\,\\s]{1,300}$");
-        } else {
+        if (adresse == "") {
             return true;
+        } else {
+            return adresse.matches("^[a-zA-Z0-9\\p{L}\\'\\.\\-\\,\\s]{1,300}$");
         }
     }
 
     public boolean valideCP(String cp) {
         // 4 à 5 caractères numériques
         
-        if (cp != "") {
-            return cp.matches("^[0-9]{4,5}$");
-        } else {
+        if (cp == "") {
             return true;
+        } else {
+            return cp.matches("^[0-9]{4,5}$");
         }
     }
 
     public boolean valideVille(String ville) {
         //45 caractères alphabétiques, tirets, apostrophes, espaces, points
 
-         if (ville != "") {
-            return ville.matches("^[a-zA-Z\\p{L}\\'\\.\\-\\s]{1,45}$");
-        } else {
-            return true;
-        }
+         if (ville == "") {
+             return true;
+         } else {
+             return ville.matches("^[a-zA-Z\\p{L}\\'\\.\\-\\s]{1,45}$");
+         }
     }
 
     public boolean valideMail(String mail) {
         //254 caractères
-        if(mail != ""){
-        return mail.matches("^.{1,254}$");
+        if(mail == ""){
+            return true;
         }else{
-        return true;
+            return mail.matches("^.{1,254}$");
         }
     }
 
@@ -90,11 +89,9 @@ public class FabriqueContact {
     public Contact creeContact(String nom, String prenom, String tel, String mail, String adresse, String cp, String ville) {
 
         Contact contact = null;
-        System.out.println(nom + prenom + tel + mail + adresse + cp + ville);
         try {
 
             if (valideNom(nom) && validePrenom(prenom) && valideAdresse(adresse)&& valideTel(tel) && valideCP(cp) && valideVille(ville) && valideMail(mail)) {
-
                 contact = new Contact(nom, prenom, tel, mail, adresse, cp, ville);
 
             }

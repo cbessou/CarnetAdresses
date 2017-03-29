@@ -8,14 +8,19 @@ package carnetadresses;
 import contacts.Contact;
 import contacts.FabriqueContact;
 import contacts.ListeContacts;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Nanwee
  */
 public class FacadeContacts {
-    public ArrayList<String> rechercher(String rech){
+    public ArrayList<String> rechercher(String rech) throws IOException, FileNotFoundException, ClassNotFoundException{
         ArrayList<String> liste = new ArrayList();
         ArrayList<Contact> l = ListeContacts.getInstance().rechercher(rech);
         l.forEach(c->{
@@ -26,20 +31,22 @@ public class FacadeContacts {
     
     public void creerContact(String[] coord){
         FabriqueContact f = new FabriqueContact();
-        try{
-            Contact c = f.creeContact(coord[0], coord[1], coord[2], coord[3], coord[4], coord[5], coord[6]);
-            if (c!=null){
+        Contact c;
+        c = f.creeContact(coord[0], coord[1], coord[2], coord[3], coord[4], coord[5], coord[6]);
+        if (c==null){
+            System.out.println("Impossible de créer le contact");
+        }else{
+            try {
                 ajouterContact(c);
-            }else{
-                System.out.println("Impossible de créer le contact");
+            } catch (IOException ex) {
+                Logger.getLogger(FacadeContacts.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(FacadeContacts.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-        }catch(NumberFormatException e){
-            System.out.println(e.getMessage());
         }
     }
     
-    public void ajouterContact(Contact c){
+    public void ajouterContact(Contact c) throws IOException, FileNotFoundException, ClassNotFoundException{
         ListeContacts l = ListeContacts.getInstance();
         l.ajouter(c);
     }

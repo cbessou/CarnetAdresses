@@ -6,7 +6,6 @@
 package carnetadresses;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -15,12 +14,13 @@ import java.util.Scanner;
  */
 public class SelecteurOperation {
     private boolean exec;
+    private Scanner k;
     
     public SelecteurOperation(){
+        this.k = new Scanner(System.in);
         exec = true;
     }
     public void start(){
-        Scanner k = new Scanner(System.in);
         while(exec){
             System.out.println("Que voulez-vous faire ?\n1: afficher les contacts\n"
                 + "2: rechercher des contacts\n3: ajouter un contact\n4: sortir");
@@ -43,45 +43,44 @@ public class SelecteurOperation {
         
     }
     
+    private String readLine(){
+        String val = k.nextLine();
+        if(val.length()!=0){
+            return val;
+        }else{
+            return "";
+        }
+    }
     public void ajouter(){
+        k.nextLine();
         String[] coord = new String[7];
-        String val;
-        Scanner k = new Scanner(System.in);
         /*Nom*/
         System.out.println("Nom :");
-        val = k.nextLine();
-        coord[0]=val;
+        coord[0]=readLine();
         /*Prenom*/
         System.out.println("Prénom :");
-        val = k.nextLine();
-        coord[1]=val;
+        coord[1]=readLine();
         /*Telephone*/
         System.out.println("Numéro de téléphone :");
-        val = k.nextLine();
-        coord[2]=val;
+        coord[2]=readLine();
         /*Mail*/
         System.out.println("Adresse mail :");
-        val = k.nextLine();
-        coord[3]=val;
+        coord[3]=readLine();
         /*Adresse*/
         System.out.println("Adresse postale (n° et rue) :");
-        val = k.nextLine();
-        coord[4]=val;
+        coord[4]=readLine();
         /*Code Postal*/
         System.out.println("Adresse postale (Code postal) :");
-        val = k.nextLine();
-        coord[5]=val;
+        coord[5]=readLine();
         /*Ville*/
         System.out.println("Adresse postale (Ville) :");
-        val = k.nextLine();
-        coord[6]=val;
+        coord[6]=readLine();
         
         FacadeContacts f = new FacadeContacts();
         f.creerContact(coord);
     }
     
     public void rechercher(){
-        Scanner k = new Scanner(System.in);
         System.out.println("Nom à rechercher :");
         String val = k.nextLine();
         afficher(val);
