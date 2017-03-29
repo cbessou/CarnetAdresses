@@ -5,7 +5,7 @@
  */
 package carnetadresses;
 
-import contacts.ListeContacts;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -47,53 +47,34 @@ public class SelecteurOperation {
         /*Nom*/
         System.out.println("Nom :");
         val = k.nextLine();
-        //verif validité
-        
-        //si ok, ajout dans le tableau
         coord[0]=val;
         /*Prenom*/
         System.out.println("Prénom :");
         val = k.nextLine();
-        //verif validité
-        
-        //si ok, ajout dans le tableau
         coord[1]=val;
         /*Telephone*/
         System.out.println("Numéro de téléphone :");
         val = k.nextLine();
-        //verif validité
-        
-        //si ok, ajout dans le tableau
         coord[2]=val;
         /*Mail*/
         System.out.println("Adresse mail :");
         val = k.nextLine();
-        //verif validité
-        
-        //si ok, ajout dans le tableau
         coord[3]=val;
         /*Adresse*/
         System.out.println("Adresse postale (n° et rue) :");
         val = k.nextLine();
-        //verif validité
-        
-        //si ok, ajout dans le tableau
         coord[4]=val;
         /*Code Postal*/
         System.out.println("Adresse postale (Code postal) :");
         val = k.nextLine();
-        //verif validité
-        
-        //si ok, ajout dans le tableau
         coord[5]=val;
         /*Ville*/
         System.out.println("Adresse postale (Ville) :");
         val = k.nextLine();
-        //verif validité
-        
-        //si ok, ajout dans le tableau
         coord[6]=val;
         
+        FacadeContacts f = new FacadeContacts();
+        f.creerContact(coord);
         System.out.println(Arrays.toString(coord));
     }
     
@@ -101,14 +82,14 @@ public class SelecteurOperation {
         Scanner k = new Scanner(System.in);
         System.out.println("Nom à rechercher :");
         String val = k.nextLine();
-        //verif validité
-        
-        //recherche
         afficher(val);
     }
     
     public static void afficher(String nom){
-        //ListeContacts liste = ListeContacts.getInstance();
-        System.out.println(nom);
+        FacadeContacts f = new FacadeContacts();
+        ArrayList<String> liste = f.rechercher(nom);
+        liste.forEach(c->{
+            System.out.println(c);
+        });
     }
 }
