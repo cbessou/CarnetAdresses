@@ -5,8 +5,12 @@
  */
 package carnetadresses;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,10 +31,26 @@ public class SelecteurOperation {
             int choix = k.nextInt();
             switch (choix){
                 case 1:
+            {
+                try {
                     afficher("");
+                } catch (IOException ex) {
+                    Logger.getLogger(SelecteurOperation.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(SelecteurOperation.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
                     break;
                 case 2:
+            {
+                try {
                     rechercher();
+                } catch (IOException ex) {
+                    Logger.getLogger(SelecteurOperation.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(SelecteurOperation.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
                     break;
                 case 3:
                     ajouter();
@@ -80,13 +100,13 @@ public class SelecteurOperation {
         f.creerContact(coord);
     }
     
-    public void rechercher(){
+    public void rechercher() throws IOException, FileNotFoundException, ClassNotFoundException{
         System.out.println("Nom à rechercher :");
         String val = k.nextLine();
         afficher(val);
     }
     
-    public void afficher(String nom){
+    public void afficher(String nom) throws IOException, FileNotFoundException, ClassNotFoundException{
         FacadeContacts f = new FacadeContacts();
         ArrayList<String> liste = f.rechercher(nom);
         liste.forEach(c->{
