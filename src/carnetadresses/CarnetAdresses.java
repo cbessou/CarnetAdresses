@@ -6,6 +6,9 @@
 package carnetadresses;
 
 import affichage.fenetreAffichage;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -44,7 +47,13 @@ public class CarnetAdresses {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new fenetreAffichage().setVisible(true);
+                try {
+                    new fenetreAffichage().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(CarnetAdresses.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(CarnetAdresses.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         
