@@ -24,10 +24,13 @@ public class fenetreAffichage extends javax.swing.JFrame {
         //affichage contacts au démarrage
         modele1 = new DefaultListModel();
         FacadeContacts f = new FacadeContacts();
-        ArrayList<String> liste = f.rechercher("");
-        liste.forEach((String c)->{
-            modele1.addElement(c);
-        });
+        try {
+            ArrayList<String> liste = f.rechercher("");
+            liste.forEach((String c) -> {
+                modele1.addElement(c);
+            });
+        } catch (Exception e) {
+        }
         initComponents();
     }
 

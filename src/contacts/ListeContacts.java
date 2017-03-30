@@ -93,6 +93,7 @@ public class ListeContacts {
             return true;
         }catch(IOException|ClassNotFoundException e){
             System.out.println("Erreur de chargement du fichier" + e.getMessage());
+            this.contacts=new ArrayList<>();
             return false;
         }
     }
