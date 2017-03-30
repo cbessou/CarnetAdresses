@@ -79,14 +79,16 @@ public class ListeContacts {
     /**
      *fonction qui charge la liste de contacts au démarrage.
      */
-    public void charger(){
+    public boolean charger(){
         try{
             ObjectInputStream in;
             in = new ObjectInputStream(new FileInputStream(this.pathname));
             ArrayList listeContact = (ArrayList) in.readObject();
             this.contacts= listeContact;
+            return true;
         }catch(IOException|ClassNotFoundException e){
             System.out.println("Erreur de chargement du fichier" + e.getMessage());
+            return false;
         }
     }
     
