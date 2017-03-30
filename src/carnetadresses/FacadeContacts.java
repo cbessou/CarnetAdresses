@@ -28,6 +28,7 @@ public class FacadeContacts {
         l.forEach(c->{
             liste.add(c.toString());
         });
+        liste.sort(null);
         return liste;
     }
     
