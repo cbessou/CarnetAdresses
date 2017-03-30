@@ -157,6 +157,11 @@ public class FenetreSaisie extends javax.swing.JFrame {
         getContentPane().add(jLabel7, gridBagConstraints);
 
         bAnnuler.setText("Annuler");
+        bAnnuler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAnnulerActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 14;
@@ -204,6 +209,10 @@ public class FenetreSaisie extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_bAjouterActionPerformed
+
+    private void bAnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnnulerActionPerformed
+    this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_bAnnulerActionPerformed
 
     /**
      * @param args the command line arguments
