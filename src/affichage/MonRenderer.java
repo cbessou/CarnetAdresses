@@ -12,7 +12,7 @@ import javax.swing.JTextArea;
 import javax.swing.ListCellRenderer;
 
 /**
- *
+ * Class to set a custom renderer(in column) for the contacts list
  * @author Philip
  */
 public class MonRenderer extends JTextArea  implements ListCellRenderer {

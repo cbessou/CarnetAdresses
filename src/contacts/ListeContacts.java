@@ -16,7 +16,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
- *
+ *  Gere la liste des contacts 
  * @author Nanwee
  */
 public class ListeContacts {

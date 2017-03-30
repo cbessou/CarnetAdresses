@@ -24,9 +24,11 @@ public class fenetreAffichage extends javax.swing.JFrame {
     DefaultListModel<String> modele1;
     /**
      * Creates new form Testfenetre
+     * add contacts list view add application start
      */
     public fenetreAffichage() throws IOException, FileNotFoundException, ClassNotFoundException {
         
+        //affichage contacts au démarrage
         modele1 = new DefaultListModel();
         FacadeContacts f = new FacadeContacts();
         ArrayList<String> liste = f.rechercher("");
