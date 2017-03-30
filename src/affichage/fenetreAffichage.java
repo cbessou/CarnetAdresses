@@ -6,8 +6,6 @@
 package affichage;
 
 import carnetadresses.*;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
@@ -21,9 +19,6 @@ public class fenetreAffichage extends javax.swing.JFrame {
     /**
      * Creates new form Testfenetre
      * add contacts list view add application start
-     * @throws java.io.IOException
-     * @throws java.io.FileNotFoundException
-     * @throws java.lang.ClassNotFoundException
      */
     public fenetreAffichage() {
         //affichage contacts au démarrage
