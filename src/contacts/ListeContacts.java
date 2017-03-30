@@ -74,7 +74,12 @@ public class ListeContacts {
     
     }
     
-    //fonction de sauvegarde de la liste de contacts.
+    
+
+    /**
+     *fonction de sauvegarde de la liste de contacts.
+     */
+    
     public void enregistrer(){
         
     try {
@@ -86,10 +91,17 @@ public class ListeContacts {
         }
     }
     
-    //fonction qui charge la liste de contacts.
+    
+
+    /**
+     *fonction qui charge la liste de contacts au démarrage.
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public void charger() throws FileNotFoundException, IOException, ClassNotFoundException{
     try{
-         System.out.println("Chargement des contacts");
+         
         ObjectInputStream in;
         in = new ObjectInputStream(new FileInputStream(this.pathname));
         ArrayList listeContact = (ArrayList) in.readObject();
