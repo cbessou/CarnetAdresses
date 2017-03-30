@@ -8,11 +8,7 @@ package carnetadresses;
 import contacts.Contact;
 import contacts.FabriqueContact;
 import contacts.ListeContacts;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -22,11 +18,7 @@ public class FacadeContacts {
     public ArrayList<String> rechercher(String rech){
         ArrayList<String> liste = new ArrayList();
         ArrayList<Contact> l;
-        try {
-            l = ListeContacts.getInstance().rechercher(rech);
-        } catch (IOException | ClassNotFoundException ex) {
-            l = new ArrayList();
-        }
+        l = ListeContacts.getInstance().rechercher(rech);
         l.forEach(c->{
             liste.add(c.toString());
         });
@@ -48,13 +40,7 @@ public class FacadeContacts {
     
     public boolean ajouterContact(Contact c){
         ListeContacts l;
-        boolean ret = false;
-        try {
-            l = ListeContacts.getInstance();
-            ret = l.ajouter(c);
-        } catch (IOException | ClassNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return ret;
+        l = ListeContacts.getInstance();
+        return l.ajouter(c);
     }
 }
