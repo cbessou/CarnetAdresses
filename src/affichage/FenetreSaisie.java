@@ -6,6 +6,7 @@
 package affichage;
 
 import carnetadresses.FacadeContacts;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -195,7 +196,12 @@ public class FenetreSaisie extends javax.swing.JFrame {
         }
         
         if(f.creerContact(coord)){
-          
+            JOptionPane.showMessageDialog(this,"Le contact " + coord [0] + " " + coord [1] + " a bien été ajouté" ,"Confirmation",JOptionPane.PLAIN_MESSAGE);
+            this.dispose();
+        }
+        else {
+            JOptionPane.showMessageDialog(this,"Erreur lors de l'ajour du contact.", "Erreur",JOptionPane.ERROR_MESSAGE);
+            this.dispose();
         }
     }//GEN-LAST:event_bAjouterActionPerformed
 
