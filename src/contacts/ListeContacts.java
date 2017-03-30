@@ -5,11 +5,9 @@
  */
 package contacts;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -95,27 +93,20 @@ public class ListeContacts {
 
     /**
      *fonction qui charge la liste de contacts au démarrage.
-     * @throws FileNotFoundException
-     * @throws IOException
-     * @throws ClassNotFoundException
      */
-    public void charger() throws FileNotFoundException, IOException, ClassNotFoundException{
-    try{
-         
-        ObjectInputStream in;
-        in = new ObjectInputStream(new FileInputStream(this.pathname));
-        ArrayList listeContact = (ArrayList) in.readObject();
-        this.contacts= listeContact;
-       
-        
-    }catch(IOException|ClassNotFoundException e){
-        
-        System.out.println("Erreur de chargement du fichier" + e.getMessage());
+    public void charger(){
+        try{
+            ObjectInputStream in;
+            in = new ObjectInputStream(new FileInputStream(this.pathname));
+            ArrayList listeContact = (ArrayList) in.readObject();
+            this.contacts= listeContact;
+        }catch(IOException|ClassNotFoundException e){
+            System.out.println("Erreur de chargement du fichier" + e.getMessage());
+        }
     }
-            
-            }
     
     
+    @Override
     public String toString(){
     
     return (""+contacts);

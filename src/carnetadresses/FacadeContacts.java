@@ -11,7 +11,6 @@ import contacts.ListeContacts;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,34 +19,42 @@ import java.util.logging.Logger;
  * @author Nanwee
  */
 public class FacadeContacts {
-    public ArrayList<String> rechercher(String rech) throws IOException, FileNotFoundException, ClassNotFoundException{
+    public ArrayList<String> rechercher(String rech){
         ArrayList<String> liste = new ArrayList();
-        ArrayList<Contact> l = ListeContacts.getInstance().rechercher(rech);
+        ArrayList<Contact> l;
+        try {
+            l = ListeContacts.getInstance().rechercher(rech);
+        } catch (IOException | ClassNotFoundException ex) {
+            l = new ArrayList();
+        }
         l.forEach(c->{
             liste.add(c.toString());
         });
         return liste;
     }
     
-    public void creerContact(String[] coord){
+    public boolean creerContact(String[] coord){
         FabriqueContact f = new FabriqueContact();
         Contact c;
+        boolean ret;
         c = f.creeContact(coord[0], coord[1], coord[2], coord[3], coord[4], coord[5], coord[6]);
         if (c==null){
-            System.out.println("Impossible de créer le contact");
+            ret = false;
         }else{
-            try {
-                ajouterContact(c);
-            } catch (IOException ex) {
-                Logger.getLogger(FacadeContacts.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(FacadeContacts.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            ret = ajouterContact(c);
         }
+        return ret;
     }
     
-    public void ajouterContact(Contact c) throws IOException, FileNotFoundException, ClassNotFoundException{
-        ListeContacts l = ListeContacts.getInstance();
-        l.ajouter(c);
+    public boolean ajouterContact(Contact c){
+        ListeContacts l;
+        boolean ret = false;
+        try {
+            l = ListeContacts.getInstance();
+            ret = l.ajouter(c);
+        } catch (IOException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return ret;
     }
 }
