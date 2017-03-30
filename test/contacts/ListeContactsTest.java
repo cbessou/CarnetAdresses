@@ -70,7 +70,7 @@ public class ListeContactsTest {
             Contact c = new Contact("testajout","test", "0000000000", "testtest", "testadresse", "31000", "toulouse");
             
             boolean result = instance.ajouter(c);
-            if(!instance.toString().isEmpty()){
+            if(result){
                ArrayList resultat = instance.rechercher("testajout");
                 if(!resultat.toString().isEmpty()){
                 System.out.println(resultat.toString());
