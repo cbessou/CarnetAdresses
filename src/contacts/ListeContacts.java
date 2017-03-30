@@ -25,6 +25,10 @@ public class ListeContacts {
     private ListeContacts(){
     }
     
+    /**
+     *
+     * @return
+     */
     public static ListeContacts getInstance(){
         if(ListeContacts.instance==null){
             ListeContacts.instance = new ListeContacts();
@@ -78,6 +82,7 @@ public class ListeContacts {
     
     /**
      *fonction qui charge la liste de contacts au démarrage.
+     * @return true si le chargement a réussi, false sinon
      */
     public boolean charger(){
         try{

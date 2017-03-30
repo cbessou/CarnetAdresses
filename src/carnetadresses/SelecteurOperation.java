@@ -29,7 +29,7 @@ public class SelecteurOperation {
     }
 
     /**
-     *
+     * demarre le sélecteur et attends une entrée de l'utilisateur pour choisir l'action à effectuer
      */
     public void start(){
         while(exec){
@@ -41,9 +41,7 @@ public class SelecteurOperation {
             {
                 try {
                     afficher("");
-                } catch (IOException ex) {
-                    Logger.getLogger(SelecteurOperation.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ClassNotFoundException ex) {
+                } catch (IOException | ClassNotFoundException ex) {
                     Logger.getLogger(SelecteurOperation.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -52,9 +50,7 @@ public class SelecteurOperation {
             {
                 try {
                     rechercher();
-                } catch (IOException ex) {
-                    Logger.getLogger(SelecteurOperation.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ClassNotFoundException ex) {
+                } catch (IOException | ClassNotFoundException ex) {
                     Logger.getLogger(SelecteurOperation.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -80,7 +76,7 @@ public class SelecteurOperation {
     }
 
     /**
-     *
+     * demande à l'utilisateur de saisir les informations du contact puis lance l'ajout
      */
     public void ajouter(){
         k.nextLine();
@@ -112,7 +108,7 @@ public class SelecteurOperation {
     }
     
     /**
-     *
+     * demande à l'utilisateur de saisir le nom à rechercher puis lance l'affichage
      * @throws IOException
      * @throws FileNotFoundException
      * @throws ClassNotFoundException
@@ -124,7 +120,7 @@ public class SelecteurOperation {
     }
     
     /**
-     *
+     * affiche les contacts correspondant à une chaine de caractères
      * @param nom
      * @throws IOException
      * @throws FileNotFoundException

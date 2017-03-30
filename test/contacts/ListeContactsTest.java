@@ -48,7 +48,9 @@ public class ListeContactsTest {
         ListeContacts result = ListeContacts.getInstance();
         String resultlist = result.toString();
         if (!resultlist.isEmpty()) {
-            System.out.println(resultlist + "\nInstance trouvée");
+            //System.out.println(resultlist + "\nInstance trouvée");
+            System.out.println("\nInstance trouvée");
+            
         } else {
             fail("instance non trouvée");
         }
@@ -68,7 +70,8 @@ public class ListeContactsTest {
         if (result) {
             ArrayList resultat = instance.rechercher("testajout");
             if (!resultat.toString().isEmpty()) {
-                System.out.println(resultat.toString() + "\n Test ajout Réussi.");
+               // System.out.println(resultat.toString() + "\n Test ajout Réussi.");
+               System.out.println("\n Test ajout Réussi.");
             } else {
                 fail("la liste de résultat est vide");
             }
@@ -89,7 +92,8 @@ public class ListeContactsTest {
 
         ArrayList result = instance.rechercher(nom);
         if (!result.toString().isEmpty()) {
-            System.out.println(result.toString() + "\n Test recherche Réussi.");
+            //System.out.println(result.toString() + "\n Test recherche Réussi.");
+            System.out.println("\n Test recherche Réussi.");
         } else {
             fail("Test recherche échoué.");
         }

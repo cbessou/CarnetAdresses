@@ -6,7 +6,7 @@
 package contacts;
 
 /**
- *  Cllass that Check the data entered, and create the contact if all tests passed.
+ *  Class that Check the data entered, and create the contact if all tests passed.
  * @author Philip
  */
 public class FabriqueContact {
@@ -14,7 +14,7 @@ public class FabriqueContact {
     //fonctions de validation des données reçues.
 
     /**
-     *
+     * validation du nom
      * @param nom
      * @return
      */
@@ -25,31 +25,28 @@ public class FabriqueContact {
     }
 
     /**
-     *
+     * validation du prenom
      * @param prenom
      * @return
      */
     public boolean validePrenom(String prenom) {
         //2 à 30 caractères alphabétiques, tirets, apostrophes, espaces
       
-        if (prenom == "") {
+        if ("".equals(prenom)) {
             return true;
         } else {
-            
             return prenom.matches("^[a-zA-Z\\p{L}\\'\\.\\-\\s]{2,30}$");
-            
         }
-
     }
 
     /**
-     *
+     * validation du numero de telephone
      * @param tel
      * @return
      */
     public boolean valideTel(String tel) {
         //10 à 14 caractères numériques, tirets, espaces, points
-        if (tel == "") {
+        if ("".equals(tel)) {
             return true;
         } else {
             return tel.matches("^[0-9\\-\\.\\s]{10,14}$");
@@ -57,13 +54,13 @@ public class FabriqueContact {
     }
 
     /**
-     *
+     * validation de l'adresse
      * @param adresse
      * @return
      */
     public boolean valideAdresse(String adresse) {
         // 300 caractères alphanumériques, tirets, apostrophes, espaces, points
-        if (adresse == "") {
+        if ("".equals(adresse)) {
             return true;
         } else {
             return adresse.matches("^[a-zA-Z0-9\\p{L}\\'\\.\\-\\,\\s]{1,300}$");
@@ -71,14 +68,13 @@ public class FabriqueContact {
     }
 
     /**
-     *
+     * vérifie que le code postal contient 4 à 5 caractères numériques
      * @param cp
      * @return
      */
     public boolean valideCP(String cp) {
         // 4 à 5 caractères numériques
-        
-        if (cp == "") {
+        if ("".equals(cp)) {
             return true;
         } else {
             return cp.matches("^[0-9]{4,5}$");
@@ -86,14 +82,14 @@ public class FabriqueContact {
     }
 
     /**
-     *
+     * validation de la ville
      * @param ville
      * @return
      */
     public boolean valideVille(String ville) {
         //45 caractères alphabétiques, tirets, apostrophes, espaces, points
 
-         if (ville == "") {
+         if ("".equals(ville)) {
              return true;
          } else {
              return ville.matches("^[a-zA-Z\\p{L}\\'\\.\\-\\s]{1,45}$");
@@ -101,13 +97,13 @@ public class FabriqueContact {
     }
 
     /**
-     *
+     * validation du mail
      * @param mail
      * @return
      */
     public boolean valideMail(String mail) {
         //254 caractères
-        if(mail == ""){
+        if("".equals(mail)){
             return true;
         }else{
             return mail.matches("^.{1,254}$");
@@ -129,19 +125,12 @@ public class FabriqueContact {
 
         Contact contact = null;
         try {
-
             if (valideNom(nom) && validePrenom(prenom) && valideAdresse(adresse)&& valideTel(tel) && valideCP(cp) && valideVille(ville) && valideMail(mail)) {
                 contact = new Contact(nom, prenom, tel, mail, adresse, cp, ville);
-
             }
-
         } catch (Exception e) {
-
             System.out.println(e.getMessage());
-
         }
-
         return contact;
-
     }
 }

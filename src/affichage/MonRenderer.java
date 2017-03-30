@@ -6,7 +6,6 @@
 package affichage;
 
 import java.awt.Component;
-import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
 import javax.swing.JTextArea;
 import javax.swing.ListCellRenderer;
@@ -17,19 +16,21 @@ import javax.swing.ListCellRenderer;
  */
 public class MonRenderer extends JTextArea  implements ListCellRenderer {
     
-    
-    
+    /**
+     *
+     * @param list
+     * @param value
+     * @param index
+     * @param isSelected
+     * @param cellHasFocus
+     * @return
+     */
+    @Override
     public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus){
         
         JTextArea res= new JTextArea();
         res.setText(value.toString());
-        
-        
+
         return res;
-    
-    
-    
-    
-    
     }
 }

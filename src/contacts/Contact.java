@@ -22,11 +22,9 @@ public class Contact implements Serializable {
     private String cp;
     private String ville;
 
-         
-    //Constructeur par paramètres
 
     /**
-     *
+     * Constructeur de Contact
      * @param nom
      * @param prenom
      * @param tel
@@ -48,21 +46,17 @@ public class Contact implements Serializable {
     }
     
 /*...............Nom....................*/
-    
-    //Récupérer le nom
 
     /**
-     *
-     * @return
+     * Récupérer le nom
+     * @return nom
      */
     public String getNom() {
         return nom;
     }
-     
-    //Modifier le nom   
 
     /**
-     *
+     * Modifier le nom 
      * @param nom
      */
     public void setNom(String nom) {
@@ -71,20 +65,16 @@ public class Contact implements Serializable {
          
 /*...............Prenom..................*/
     
-    //Récupérer le Prenom      
-
     /**
-     *
-     * @return
+     * Récupérer le Prenom  
+     * @return prenom
      */
     public String getPrenom() {
         return prenom;
     }
-         
-    //Modifier le Prenom       
 
     /**
-     *
+     * Modifier le Prenom  
      * @param prenom
      */
     public void setPrenom(String prenom) {
@@ -93,20 +83,16 @@ public class Contact implements Serializable {
     
 /*...............Telephone................*/
     
-    //Récupérer le téléphone
-
     /**
-     *
-     * @return
+     * Récupérer le téléphone
+     * @return numero de tel
      */
     public String getTel() {
     return tel;
     }
      
-    //Modifier le téléphone
-
     /**
-     *
+     * Modifier le téléphone
      * @param tel
      */
     public void setTel(String tel) {
@@ -115,20 +101,16 @@ public class Contact implements Serializable {
          
 /*...............E-Mail...................*/
     
-    //Récupérer l'adresse mail  
-
     /**
-     *
-     * @return
+     * Récupérer l'adresse mail 
+     * @return email
      */
     public String getEmail() {
         return email;
     }
-     
-    //Modifier l'adresse mail
 
     /**
-     *
+     * Modifier l'adresse mail
      * @param email
      */
     public void setEmail(String email) {
@@ -137,20 +119,16 @@ public class Contact implements Serializable {
     
 /*...............Adresse..................*/
     
-        //Récupérer l'adresse
-
     /**
-     *
-     * @return
+     * Récupérer l'adresse
+     * @return adresse
      */
     public String getAdresse() {
         return adresse;
     }
-     
-    //Modifier l'adresse
 
     /**
-     *
+     * Modifier l'adresse
      * @param adresse
      */
     public void setAdresse(String adresse) {
@@ -159,20 +137,16 @@ public class Contact implements Serializable {
     
 /*...............Code postal..............*/
     
-    //Récupérer le code postal
-
     /**
-     *
-     * @return
+     * Récupérer le code postal
+     * @return code postal
      */
     public String getCp() {
         return cp;
     }
-     
-    //Modifier le code postal  
 
     /**
-     *
+     * Modifier le code postal  
      * @param cp
      */
     public void setCp(String cp) {
@@ -180,21 +154,17 @@ public class Contact implements Serializable {
             }
     
 /*...............Ville....................*/    
-    
-    //Récupérer la ville     
 
     /**
-     *
-     * @return
+     * Récupérer la ville  
+     * @return ville
      */
     public String getVille() {
     return ville;  
     }
-     
-    //Modifier la ville
 
     /**
-     *
+     * Modifier la ville
      * @param ville
      */
     public void setVille(String ville) {

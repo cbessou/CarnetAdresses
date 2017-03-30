@@ -6,14 +6,10 @@
 package affichage;
 
 import carnetadresses.*;
-import contacts.Contact;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
 
 /**
  *
@@ -25,9 +21,11 @@ public class fenetreAffichage extends javax.swing.JFrame {
     /**
      * Creates new form Testfenetre
      * add contacts list view add application start
+     * @throws java.io.IOException
+     * @throws java.io.FileNotFoundException
+     * @throws java.lang.ClassNotFoundException
      */
-    public fenetreAffichage() throws IOException, FileNotFoundException, ClassNotFoundException {
-        
+    public fenetreAffichage() {
         //affichage contacts au démarrage
         modele1 = new DefaultListModel();
         FacadeContacts f = new FacadeContacts();
@@ -127,7 +125,7 @@ public class fenetreAffichage extends javax.swing.JFrame {
         DefaultListModel modele = new DefaultListModel();
        
         FacadeContacts f = new FacadeContacts();
-        ArrayList<String> liste = null;
+        ArrayList<String> liste;
         liste = f.rechercher(str);
         liste.forEach(c->{
             modele.addElement(c);
