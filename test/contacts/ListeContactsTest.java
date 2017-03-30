@@ -5,10 +5,7 @@
  */
 package contacts;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,22 +18,22 @@ import static org.junit.Assert.*;
  * @author Philip
  */
 public class ListeContactsTest {
-    
+
     public ListeContactsTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -49,33 +46,33 @@ public class ListeContactsTest {
         System.out.println("\n getInstance");
         ListeContacts expResult = null;
         ListeContacts result = ListeContacts.getInstance();
-        String resultlist= result.toString();
-        if(!resultlist.isEmpty()){
-        System.out.println(resultlist + "\nInstance trouvée");
-        }else{
-        fail("instance non trouvée");
+        String resultlist = result.toString();
+        if (!resultlist.isEmpty()) {
+            System.out.println(resultlist + "\nInstance trouvée");
+        } else {
+            fail("instance non trouvée");
         }
-        
+
     }
 
     /**
-     * Test of ajouter method, of class ListeContacts.
-     * Be careful, this test will add a default testajout contact in your contact list! 
+     * Test of ajouter method, of class ListeContacts. Be careful, this test
+     * will add a default testajout contact in your contact list!
      */
     @Test
     public void testAjouter() {
         System.out.println("\n ajouter");
         ListeContacts instance = ListeContacts.getInstance();
-        Contact c = new Contact("testajout","test", "0000000000", "testtest", "testadresse", "31000", "toulouse");
+        Contact c = new Contact("testajout", "test", "0000000000", "testtest", "testadresse", "31000", "toulouse");
         boolean result = instance.ajouter(c);
-        if(result){
+        if (result) {
             ArrayList resultat = instance.rechercher("testajout");
-            if(!resultat.toString().isEmpty()){
-                System.out.println(resultat.toString()+ "\n Test ajout Réussi.");
-            }else{
+            if (!resultat.toString().isEmpty()) {
+                System.out.println(resultat.toString() + "\n Test ajout Réussi.");
+            } else {
                 fail("la liste de résultat est vide");
             }
-        }else{
+        } else {
             fail("La liste de contacts est vide");
         }
         // TODO review the generated test code and remove the default call to fail.
@@ -89,14 +86,14 @@ public class ListeContactsTest {
         System.out.println("\n rechercher");
         String nom = "test";
         ListeContacts instance = ListeContacts.getInstance();
-       
+
         ArrayList result = instance.rechercher(nom);
-        if(!result.toString().isEmpty()){
-        System.out.println(result.toString()+"\n Test recherche Réussi.");
-        }else{
-             fail("Test recherche échoué.");
+        if (!result.toString().isEmpty()) {
+            System.out.println(result.toString() + "\n Test recherche Réussi.");
+        } else {
+            fail("Test recherche échoué.");
         }
-       
+
     }
 
     /**
@@ -107,10 +104,11 @@ public class ListeContactsTest {
         System.out.println("\n enregistrer");
         ListeContacts instance = ListeContacts.getInstance();
         boolean enregistrer = instance.enregistrer();
-        if(enregistrer){
-        System.out.println("Enregistrement réussi");
-        }else{
-        fail("Test de l'enregistrement échoué.");}
+        if (enregistrer) {
+            System.out.println("Enregistrement réussi");
+        } else {
+            fail("Test de l'enregistrement échoué.");
+        }
     }
 
     /**
@@ -121,12 +119,12 @@ public class ListeContactsTest {
         System.out.println("\n charger");
         ListeContacts instance = ListeContacts.getInstance();
         boolean resultat = instance.charger();
-        if(resultat){
+        if (resultat) {
             System.out.println("Chargement fichier réussi.");
-        }else{
+        } else {
             fail("Chargement fichier échoué.");
         }
-        
+
     }
 
     /**
@@ -136,15 +134,15 @@ public class ListeContactsTest {
     public void testToString() {
         System.out.println("\n toString");
         ListeContacts instance = ListeContacts.getInstance();
-        
+
         String result = instance.toString();
-        if(!instance.toString().isEmpty()){
+        if (!instance.toString().isEmpty()) {
             System.out.println("Méthode toString fonctionnelle.");
-            
-        }else{
-        
+
+        } else {
+
             fail("Méthode toString échouée.");
         }
     }
-    
+
 }
