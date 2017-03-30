@@ -12,15 +12,26 @@ package contacts;
 public class FabriqueContact {
 
     //fonctions de validation des données reçues.
+
+    /**
+     *
+     * @param nom
+     * @return
+     */
     public boolean valideNom(String nom) {
         //2 à 30 caract alpha, tirets, apostrophes, espaces
 
         return nom.matches("^[a-zA-Z\\p{L}\\'\\.\\-\\s]{2,30}$");
     }
 
+    /**
+     *
+     * @param prenom
+     * @return
+     */
     public boolean validePrenom(String prenom) {
         //2 à 30 caractères alphabétiques, tirets, apostrophes, espaces
-        System.out.println(prenom);
+      
         if (prenom == "") {
             return true;
         } else {
@@ -31,6 +42,11 @@ public class FabriqueContact {
 
     }
 
+    /**
+     *
+     * @param tel
+     * @return
+     */
     public boolean valideTel(String tel) {
         //10 à 14 caractères numériques, tirets, espaces, points
         if (tel == "") {
@@ -40,6 +56,11 @@ public class FabriqueContact {
         }
     }
 
+    /**
+     *
+     * @param adresse
+     * @return
+     */
     public boolean valideAdresse(String adresse) {
         // 300 caractères alphanumériques, tirets, apostrophes, espaces, points
         if (adresse == "") {
@@ -49,6 +70,11 @@ public class FabriqueContact {
         }
     }
 
+    /**
+     *
+     * @param cp
+     * @return
+     */
     public boolean valideCP(String cp) {
         // 4 à 5 caractères numériques
         
@@ -59,6 +85,11 @@ public class FabriqueContact {
         }
     }
 
+    /**
+     *
+     * @param ville
+     * @return
+     */
     public boolean valideVille(String ville) {
         //45 caractères alphabétiques, tirets, apostrophes, espaces, points
 
@@ -69,6 +100,11 @@ public class FabriqueContact {
          }
     }
 
+    /**
+     *
+     * @param mail
+     * @return
+     */
     public boolean valideMail(String mail) {
         //254 caractères
         if(mail == ""){
