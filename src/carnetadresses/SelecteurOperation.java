@@ -20,10 +20,17 @@ public class SelecteurOperation {
     private boolean exec;
     private Scanner k;
     
+    /**
+     *
+     */
     public SelecteurOperation(){
         this.k = new Scanner(System.in);
         exec = true;
     }
+
+    /**
+     *
+     */
     public void start(){
         while(exec){
             System.out.println("Que voulez-vous faire ?\n1: afficher les contacts\n"
@@ -71,6 +78,10 @@ public class SelecteurOperation {
             return "";
         }
     }
+
+    /**
+     *
+     */
     public void ajouter(){
         k.nextLine();
         String[] coord = new String[7];
@@ -100,12 +111,25 @@ public class SelecteurOperation {
         f.creerContact(coord);
     }
     
+    /**
+     *
+     * @throws IOException
+     * @throws FileNotFoundException
+     * @throws ClassNotFoundException
+     */
     public void rechercher() throws IOException, FileNotFoundException, ClassNotFoundException{
         System.out.println("Nom à rechercher :");
         String val = k.nextLine();
         afficher(val);
     }
     
+    /**
+     *
+     * @param nom
+     * @throws IOException
+     * @throws FileNotFoundException
+     * @throws ClassNotFoundException
+     */
     public void afficher(String nom) throws IOException, FileNotFoundException, ClassNotFoundException{
         FacadeContacts f = new FacadeContacts();
         ArrayList<String> liste = f.rechercher(nom);
