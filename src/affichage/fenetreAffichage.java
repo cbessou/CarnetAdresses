@@ -25,6 +25,9 @@ public class fenetreAffichage extends javax.swing.JFrame {
     /**
      * Creates new form Testfenetre
      * add contacts list view add application start
+     * @throws java.io.IOException
+     * @throws java.io.FileNotFoundException
+     * @throws java.lang.ClassNotFoundException
      */
     public fenetreAffichage() throws IOException, FileNotFoundException, ClassNotFoundException {
         
