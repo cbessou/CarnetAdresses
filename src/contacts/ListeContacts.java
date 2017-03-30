@@ -6,7 +6,6 @@
 package contacts;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -23,17 +22,13 @@ public class ListeContacts {
     private String pathname = "./listeContacts.dat";
     
     
-    private ListeContacts() throws IOException, FileNotFoundException, ClassNotFoundException{
-        
-        contacts = new ArrayList<>();
-        
+    private ListeContacts(){
     }
-    public static ListeContacts getInstance() throws IOException, FileNotFoundException, ClassNotFoundException {
+    
+    public static ListeContacts getInstance(){
         if(ListeContacts.instance==null){
             ListeContacts.instance = new ListeContacts();
             instance.charger();
-           
-            
         }
         return ListeContacts.instance;
     }
@@ -44,10 +39,9 @@ public class ListeContacts {
      * @return retourne un booléen indiquant si la fonction a réussi.
      */
     public boolean ajouter(Contact c) {
-        
-       boolean result =this.contacts.add(c);
-       this.enregistrer();
-       return result;
+        boolean result =this.contacts.add(c);
+        this.enregistrer();
+        return result;
     }
     
     /**
@@ -56,41 +50,32 @@ public class ListeContacts {
      * @return La liste des contacts correspondant à la recherche.
      */
     public ArrayList rechercher(String nom){
-        
         ArrayList listeRetour = new ArrayList();
         nom = nom.toLowerCase();
         for(Contact c : this.contacts){
-        
-        if( c.getNom().toLowerCase().contains(nom)){
-            listeRetour.add(c);
-        } else {
+            if( c.getNom().toLowerCase().contains(nom)){
+                listeRetour.add(c);
+            }
         }
-        }
-        
         return listeRetour;
-    
-    
     }
-    
-    
 
     /**
      *fonction de sauvegarde de la liste de contacts.
+     * @return true si l'enregistrement a réussi, false sinon
      */
-    
-    public void enregistrer(){
-        
-    try {
-        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(this.pathname));
-        out.writeObject(this.contacts);
-        out.close();
+    public boolean enregistrer(){
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(this.pathname));
+            out.writeObject(this.contacts);
+            out.close();
+            return true;
         }catch(IOException e){
             e.getMessage();
+            return false;
         }
     }
     
-    
-
     /**
      *fonction qui charge la liste de contacts au démarrage.
      */
@@ -105,10 +90,8 @@ public class ListeContacts {
         }
     }
     
-    
     @Override
     public String toString(){
-    
     return (""+contacts);
     }
 }
