@@ -51,6 +51,7 @@ public class FenetreSaisie extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Ajouter un contact");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
         layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
@@ -122,13 +123,13 @@ public class FenetreSaisie extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         getContentPane().add(jLabel1, gridBagConstraints);
 
-        jLabel2.setText("Prenom");
+        jLabel2.setText("Prénom");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         getContentPane().add(jLabel2, gridBagConstraints);
 
-        jLabel3.setText("Tel");
+        jLabel3.setText("N° Tel");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
@@ -146,7 +147,7 @@ public class FenetreSaisie extends javax.swing.JFrame {
         gridBagConstraints.gridy = 12;
         getContentPane().add(jLabel5, gridBagConstraints);
 
-        jLabel6.setText("Cp");
+        jLabel6.setText("Code postal");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 14;
@@ -181,11 +182,11 @@ public class FenetreSaisie extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         getContentPane().add(bEffacer, gridBagConstraints);
 
-        jLabel8.setText("Ajouter un contact");
+        jLabel8.setText("Coordonnées du contact :");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridwidth = 11;
         getContentPane().add(jLabel8, gridBagConstraints);
 
         pack();
@@ -244,41 +245,6 @@ public class FenetreSaisie extends javax.swing.JFrame {
            tCp.setText("");
            tVille.setText("");
     }//GEN-LAST:event_bEffacerActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FenetreSaisie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FenetreSaisie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FenetreSaisie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FenetreSaisie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FenetreSaisie().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAjouter;
