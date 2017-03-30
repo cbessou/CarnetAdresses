@@ -187,7 +187,16 @@ public class FenetreSaisie extends javax.swing.JFrame {
         
         coord[6] = tVille.getText();
         
-        f.creerContact(coord);
+        
+        for (int i=0;i<coord.length; i++) {
+            if (coord [i].isEmpty()) {
+                coord [i] = "";
+            }
+        }
+        
+        if(f.creerContact(coord)){
+          
+        }
     }//GEN-LAST:event_bAjouterActionPerformed
 
     /**
