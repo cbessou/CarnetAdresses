@@ -15,6 +15,12 @@ import java.util.ArrayList;
  * @author Nanwee
  */
 public class FacadeContacts {
+
+    /**
+     * Rechercher un contact en fonction du nom
+     * @param rech : String, le nom à rechercher
+     * @return un ArrayList de Strings correspondant aux contacts répondant au critère de recherche
+     */
     public ArrayList<String> rechercher(String rech){
         ArrayList<String> liste = new ArrayList();
         ArrayList<Contact> l;
@@ -25,6 +31,11 @@ public class FacadeContacts {
         return liste;
     }
     
+    /**
+     * Crée un contact puis l'ajoute à la liste de contacts
+     * @param coord un tableau contenant les coordonnées du contact
+     * @return true si tout s'est bien passé, false sinon
+     */
     public boolean creerContact(String[] coord){
         FabriqueContact f = new FabriqueContact();
         Contact c;
@@ -38,7 +49,7 @@ public class FacadeContacts {
         return ret;
     }
     
-    public boolean ajouterContact(Contact c){
+    boolean ajouterContact(Contact c){
         ListeContacts l;
         l = ListeContacts.getInstance();
         return l.ajouter(c);
