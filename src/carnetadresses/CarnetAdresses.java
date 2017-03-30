@@ -5,6 +5,8 @@
  */
 package carnetadresses;
 
+import affichage.fenetreAffichage;
+
 /**
  *
  * @author Nanwee
@@ -42,7 +44,7 @@ public class CarnetAdresses {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Testfenetre().setVisible(true);
+                new fenetreAffichage().setVisible(true);
             }
         });
         
