@@ -125,15 +125,14 @@ public class Contact implements Serializable {
     
     
     //Affiche la chaine de caractère qui décrit l'objet
+    @Override
     public String toString()
     {
-        return  "nom : " + nom + "\n" +
-                "prenom : " + prenom + "\n" +
-                "tel : " + tel + "\n" +
-                "email : " + email + "\n" +
-                "adresse : " + adresse + "\n" +
-                "cp : " + cp + "\n" +
-                "ville : " + ville + "\n" ;
+        return  "Nom : " + nom + " " + prenom + "\n" +
+                "Tel : " + tel + "\n" +
+                "E-mail : " + email + "\n" +
+                "Adresse : \n" + adresse + "\n" +
+                cp + " " + ville;
     }
  
 }
