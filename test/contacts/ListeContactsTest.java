@@ -14,7 +14,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * Test class of the ListeContacts class.
  * @author Philip
  */
 public class ListeContactsTest {

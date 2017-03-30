@@ -6,7 +6,7 @@
 package contacts;
 
 /**
- *
+ *  Cllass that Check the data entered, and create the contact if all tests passed.
  * @author Philip
  */
 public class FabriqueContact {
@@ -78,14 +78,17 @@ public class FabriqueContact {
         }
     }
 
-    //TODO après la validation de tous les champs.
-   // public boolean valideContact() {
-
-     //   return false;
-
-    //}
-
-    //fonction qui va finalement fabriquer le contact après vérifications.
+    /**
+     * Method that finally create the contacts with all the parameters
+     * @param nom String that Matches a regex and can't be empty
+     * @param prenom  String that matches a Regex, can be empty (2-30) char.
+     * @param tel   String that matches a Regex, can be empty, (10-14) char. only numbers (-,.)
+     * @param mail  String up to 254 char. can be empty 
+     * @param adresse   String up to 300 char. can be empty
+     * @param cp    String, can be empty, (4-5) char, only numbers.
+     * @param ville String, can be empty, (1-45) char.
+     * @return return an Contact object.
+     */
     public Contact creeContact(String nom, String prenom, String tel, String mail, String adresse, String cp, String ville) {
 
         Contact contact = null;

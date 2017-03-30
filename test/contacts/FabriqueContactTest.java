@@ -13,7 +13,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ *  Class that test the handle of the contact creation.
  * @author Philip
  */
 public class FabriqueContactTest {
